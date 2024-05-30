@@ -1,0 +1,23 @@
+[tool.flit.metadata]
+
+module           = 'ml_modules'
+author           = 'Pierre Glerant'
+author-email     = 'pierre.glerant@student-cs.fr'
+home-page        = 'https://github.com/pierreglerant/pg_ml_modules'
+description      = 'Package of modules useful for ML and Data Science'
+requires-python  = '>=3.12'
+license          = 'MIT'
+
+[tool.flit.metadata.authors]
+
+name             = 'Pierre Glerant'
+email            = 'pierre.glerant@student-cs.fr'
+
+[tool.flit]
+
+description-file = 'README.md'
+
+[tool.flit.metadata.urls]
+
+Homepage         = 'https://github.com/pierreglerant/pg_ml_modules'
+Issues           = 'https://github.com/pierreglerant/pg_ml_modules/issues'
