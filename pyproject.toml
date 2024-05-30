@@ -21,3 +21,6 @@ description-file = 'README.md'
 
 Homepage         = 'https://github.com/pierreglerant/pg_ml_modules'
 Issues           = 'https://github.com/pierreglerant/pg_ml_modules/issues'
+
+[tool.flit.scripts]
+test_always_true = "python -m unittest tests.test_always_true"
