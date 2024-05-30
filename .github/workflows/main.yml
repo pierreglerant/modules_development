@@ -20,8 +20,8 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'  # Remplacez '3.x' par la version de Python que vous utilisez
-          architecture: 'x64'     # Spécifiez l'architecture si nécessaire
+          python-version: '3.12'
+          architecture: 'x64'     
 
       - name: Install dependencies
         run: |
@@ -50,7 +50,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Assurez-vous d'installer vos dépendances spécifiques pour les tests
+          pip install -r requirements.txt
 
       - name: Run Tests
         run: |
