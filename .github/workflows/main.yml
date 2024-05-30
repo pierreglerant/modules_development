@@ -1,0 +1,57 @@
+name: Build and Test
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  lint-python:
+    name: Check Syntax with Flake8
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Remplacez '3.x' par la version de Python que vous utilisez
+          architecture: 'x64'     # Spécifiez l'architecture si nécessaire
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8
+
+      - name: Run Flake8
+        run: |
+          flake8 .
+          
+  tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: lint-python
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+          architecture: 'x64'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Assurez-vous d'installer vos dépendances spécifiques pour les tests
+
+      - name: Run Tests
+        run: |
+          python -m unittest discover 
